@@ -27,6 +27,6 @@ function delUselessNode(){
 }
 
 var port = chrome.runtime.connect({name: "06"});//通道名称
-port.postMessage({set: content.children[0].clientHeight });//发送消息
+port.postMessage({height: content.children[0].clientHeight });//发送消息
 port.onMessage.addListener(function(msg) {//监听消息
 });

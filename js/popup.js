@@ -10,7 +10,13 @@ function lookup(w){
 chrome.runtime.onConnect.addListener(function(port) {
    console.assert(port.name == "06");
    port.onMessage.addListener(function(msg) {
-   		console.log('new: '+msg.set)
-   		result.height = msg.set;
+   		var h = msg.height;
+   		console.log(h)
+   		if(h == 52){
+   			result.height = 100;
+   			result.src = '404.html'
+   		}else{
+   			result.height = msg.height;
+   		}
    });
 });
