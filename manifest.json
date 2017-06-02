@@ -1,0 +1,23 @@
+{
+  "manifest_version": 2,
+  "name": "dict",
+  "description": "an easiest way to look up English word",
+  "version": "1.0",
+  "permissions": [
+    "tabs"
+  ],
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "background": {
+      "scripts": [ "js/background.js" ]
+   },
+   "content_scripts": [ {
+    "css": ["dict.css"],
+    "js": ["js/kill-google-ad.js"],
+    "matches": [ "http://dict.cn/*","https://dict.cn/*"],
+    "run_at": "document_end",
+    "all_frames":true
+  } ]
+}
