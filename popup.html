@@ -6,15 +6,21 @@
 <style type="text/css">
 	*{margin:0;padding: 0;border: none}
 	body{width:500px;height:100%;}
-	#input{width: 100%;}
+	#input {
+    width: 100%;
+    border-bottom: 3px solid #079944;
+    padding: 1rem;
+    font: bold 1.5rem sans-serif;
+}
 	#result{
 		heihgt:100%;
 		width:1300px;
 	}
 </style>
 <body>
-<input id="input" type="text" placeholder="Enter for search" autofocus="true">
+<input id="input" type="text" placeholder="Enter" autofocus="true">
 <iframe id="result" scrolling="no"></iframe>
+<setting>划词搜索</setting>
 <script src="js/popup.js"></script>
 </body>
 </html>

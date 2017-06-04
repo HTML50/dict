@@ -1,6 +1,12 @@
 input.addEventListener('keydown',function(event){
 	if(event.keyCode==13){
-		lookup(input.value);
+		if(input.value!=''){
+			lookup(input.value);
+		}
+		else{
+			return false;
+		}
+		input.value = '';
 	}
 });
 
