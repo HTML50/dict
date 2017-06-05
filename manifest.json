@@ -15,8 +15,8 @@
    },
    "content_scripts": [ {
     "css": ["dict.css"],
-    "js": ["js/kill-google-ad.js"],
-    "matches": [ "http://dict.cn/*","https://dict.cn/*"],
+    "js": ["js/content-script.js"],
+    "matches":  [ "http://*/*", "https://*/*", "file://*/*" ],
     "run_at": "document_end",
     "all_frames":true
   } ]
