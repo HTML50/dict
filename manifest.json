@@ -2,6 +2,11 @@
   "manifest_version": 2,
   "name": "dict",
   "description": "an easiest way to look up English word",
+  "icons": {                                  // 插件下载或浏览时显示的图标，可选多种规格，建议128  
+        "16": "icon.png",  
+        "48": "icon.png",  
+        "128": "icon.png"  
+    },  
   "version": "1.0",
   "permissions": [
     "tabs"
@@ -10,6 +15,13 @@
     "default_icon": "icon.png",
     "default_popup": "popup.html"
   },
+  "commands": {
+      "_execute_browser_action": {
+         "suggested_key": {
+            "default": "Alt+Shift+D"
+         }
+      }
+   },
   "background": {
       "scripts": [ "js/background.js" ]
    },

@@ -1,53 +1,72 @@
-#header,#dshared,#footer,#adContent,
-.sidenav,.righter,
-.wordbook, .shape,#dict-chart-basic,.section,.copyright
-{display: none !important;}
-#content{
-	padding: 20px !important;
-	margin: 0 !important;
-}
-.main{
-	margin: 0 !important;
-	padding: 0 !important;
-	border: none !important;
-}
-
-
-.dict-box{
-		position: fixed;
-	  width: 330px;
-	  height: 400px;
-		background: rgba(255,255,255,0.5);
-		transform:scale(0);
-		opacity: 0;
-		display: none;
-		transition: transform 0.5s cubic-bezier(0.46, 1.4, 0.84, 1.03),box-shadow 0.8s ease,opacity 0.8s cubic-bezier(0, 1.15, 1, 1);
-	}
-
-
-	.show-dictBox {
-	box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-  transform: scale(1);
-  opacity: 1;
+#header,
+#dshared,
+#footer,
+#adContent,
+.sidenav,
+.righter,
+.wordbook,
+.shape,
+#dict-chart-basic,
+.section,
+.copyright {
+    display: none !important;
 }
 
-	#dictBoxBar{
-		position: absolute;
-		background: #eee;
-		width: 100%;
-		height: 42px;
-		cursor: move;
-    user-select: none; 
-	}
-	.not-pinned{
-		padding: 5px;
-		transition: transform 0.1s ease;
-	}
-	.pinned{
-		transform: rotateZ(-45deg);
-	}
-	#injectedResultBox{
-		width:100%;
-		margin-top: 15px;
-		height: 100%;
-	}
+#content {
+    padding: 20px !important;
+    margin: 0 !important;
+}
+
+.main {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+.dict-box {
+    background: #fff;
+    position: fixed;
+    width: 330px;
+    height: 400px;
+    transform: scale(0);
+    opacity: 0;
+    display: none;
+    transition: transform 0.5s cubic-bezier(0.46, 1.4, 0.84, 1.03), box-shadow 0.8s ease, opacity 0.8s cubic-bezier(0, 1.15, 1, 1);
+}
+
+.show-dictBox {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    transform: scale(1);
+    opacity: 1;
+}
+
+#dictBoxBar {
+    position: absolute;
+    background: #eee;
+    width: 100%;
+    height: 42px;
+    cursor: move;
+    user-select: none;
+}
+
+.not-pinned {
+    padding: 5px;
+    transition: transform 0.1s ease;
+    cursor: pointer;
+}
+
+.pinned {
+    transform: rotateZ(-45deg);
+}
+
+#injectedResultBox {
+    width: 100%;
+    margin-top: 15px;
+    height: 100%;
+}

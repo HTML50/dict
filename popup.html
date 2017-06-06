@@ -6,22 +6,33 @@
 </head>
 <style type="text/css">
 	*{margin:0;padding: 0;border: none}
-	body{width:500px;height:100%;}
+	body{width:500px;height:100%;overflow: hidden;}
 	#input {
-    width: 100%;
-    border-bottom: 3px solid #079944;
-    padding: 1rem;
-    font: bold 1.5rem sans-serif;
-}
+	width: 484px;
+	border-bottom: 3px solid #079944;;
+	padding: 1rem;
+	font: bold 1.5rem sans-serif;
+	background: #fff url(lookup.png) no-repeat 10px;
+	outline: none;
+	text-indent: 33px;
+	float: left;
+	}
 	#result{
-		heihgt:100%;
 		width:1300px;
+		margin-bottom: 35px;
+	}
+	.setting{
+		padding: 20px;
+		border-top: #eee 1px solid;
+	}
+	.setting span{
+
 	}
 </style>
 <body>
-<input id="input" type="text" placeholder="回车搜索" autofocus="true">
+<input id="input" type="text" placeholder="SEARCH NOW" autofocus="true" maxlength="34">
 <iframe id="result" scrolling="no"></iframe>
-<setting>划词搜索</setting>
+<setting class="setting"><span id="selectAndSearch">划词搜索</span></setting>
 <script src="js/popup.js"></script>
 </body>
 </html>

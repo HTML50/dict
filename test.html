@@ -49,6 +49,8 @@
 <body>
 Hello
 <br>Goood<br>Nice<br>beautiful<br>interesting<br>in your face<br>microminiaturization<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
 <dictBox id="dictBox" class="dict-box transiton-in">
 <dictBoxBar id='dictBoxBar'><img id="pinOnTop" src="pin.png" title="pin on top" draggable="false" class="not-pinned"></dictBoxBar>
 <iframe id="injectedResultBox" src="http://dict.cn/abb" scrolling="no"></iframe>
@@ -58,7 +60,8 @@ Hello
 
 var isMouseDown,
 initX,initY,
-dictBoxBar = document.getElementById('dictBoxBar');
+dictBoxBar = document.getElementById('dictBoxBar'),
+isBoxOpened = false,isPinned=false,hiddenProcess,hiddenProcessDetectProcess;
 
 dictBoxBar.addEventListener('mousedown',function(e){
 	isMouseDown = true;
@@ -66,18 +69,18 @@ dictBoxBar.addEventListener('mousedown',function(e){
 	initY = e.clientY - dictBox.offsetTop;
 	dictBox.style.opacity = 0.5;
 })
-document.addEventListener('mousemove',function(e){
-	if(isMouseDown){
-		dictBox.style.left = (e.clientX - initX) +'px';
-		dictBox.style.top = (e.clientY - initY)+'px';
-	}
-})
+
+	document.addEventListener('mousemove',function(e){
+		if(isMouseDown){
+			dictBox.style.left = (e.clientX - initX) +'px';
+			dictBox.style.top = (e.clientY - initY)+'px';
+		}
+	})
+
 dictBoxBar.addEventListener('mouseup',function(){
 	isMouseDown = false;
 	dictBox.style.opacity = 1;
 })
-
-var isBoxOpened = false,isPinned=false,hiddenProcess,hiddenProcessDetectProcess;
 
 document.addEventListener('mouseup',function(e){
 	var selectWord = getSelection().toString().trim();
@@ -124,7 +127,7 @@ pinOnTop.addEventListener('click',function(e){
 		pinOnTop.classList.add('pinned');
 		isPinned = true;
 	}
-	e.stopPropagation();
+	//e.stopPropagation();
 })
 
 function lookup(w){
