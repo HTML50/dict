@@ -1,0 +1,56 @@
+#header,
+#dshared,
+#c_footer,
+#adContent,
+#ads,
+#topImgAd,
+#webTrans,
+#ugcTrans,
+#authTrans,
+#eTransform,
+#examples,
+#rel-search,
+#wordbook,
+#result_navigator,
+#ydTrans,
+.img-list,
+.c-topbar-wrapper,
+.c-bsearch
+ {
+    display: none !important;
+}
+
+.keyword {
+    vertical-align: bottom;
+    margin-right: 15px;
+    line-height: 1.25em;
+    padding-right: 20px;
+    font-size: 30px;
+    color: #094;
+    font-family: Verdana,Geneva,sans-serif;
+    word-wrap: break-word;
+}
+
+#scontainer,#results{
+    margin:0 !important;
+    padding: 0 !important; 
+}
+
+#results {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    margin-top: 35px !important;
+    padding: 20px !important;
+    width: 300px !important;
+}
+
+#phrsListTab .trans-container {
+    width: 300px !important;
+}
+
+
+.error-typo {
+    border: none;
+    width: 280px !important;
+}

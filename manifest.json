@@ -2,17 +2,17 @@
   "manifest_version": 2,
   "name": "dict",
   "description": "an easiest way to look up English word",
-  "icons": {                                  // 插件下载或浏览时显示的图标，可选多种规格，建议128  
-        "16": "icon.png",  
-        "48": "icon.png",  
-        "128": "icon.png"  
+  "icons": {
+        "16": "img/icon.png",  
+        "48": "img/icon.png",  
+        "128": "img/icon.png"  
     },  
   "version": "1.0",
   "permissions": [
-    "tabs"
+    "storage","tabs"
   ],
   "browser_action": {
-    "default_icon": "icon.png",
+    "default_icon": "img/icon.png",
     "default_popup": "popup.html"
   },
   "commands": {
@@ -22,14 +22,29 @@
          }
       }
    },
-  "background": {
-      "scripts": [ "js/background.js" ]
-   },
+   "background": {
+    "scripts": ["js/background.js"],
+    "persistent": false
+  },
    "content_scripts": [ {
-    "css": ["dict.css"],
+    "css": ["css/inject.css"],
     "js": ["js/content-script.js"],
-    "matches":  [ "http://*/*", "https://*/*", "file://*/*" ],
+    "matches":  [ "<all_urls>" ],
+    "all_frames":true
+  },
+  {
+    "css": ["css/dict.cn.css"],
+    "js": ["js/dict.cn.js"],
+    "matches":  [ "http://dict.cn/*", "http://www.dict.cn/*"],
     "run_at": "document_end",
     "all_frames":true
-  } ]
+  },
+  {
+    "css": ["css/youdao.css"],
+    "js": ["js/youdao.js"],
+    "matches":  [ "https://youdao.com/w/eng/*", "http://youdao.com/w/eng/*", "http://www.youdao.com/w/eng/*", "https://www.youdao.com/w/eng/*"],
+    "run_at": "document_end",
+    "all_frames":true
+  } 
+]
 }
