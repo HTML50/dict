@@ -1,10 +1,9 @@
 //message
-var port = chrome.runtime.connect({ name: "dict" }); //通道名称
-
+var port = chrome.runtime.connect({ name: "dict" });
 
 //kill google ad at dict.cn
 if (location.href.indexOf('dict.cn') != -1) {
-    var obj = document.querySelectorAll('div[id^="div"]')
+    var obj = document.querySelectorAll('div[id^="div"]'),windowHeight;
 
     for (let i = 0, item; item = obj[i++];) {
         item.parentNode.removeChild(item);
@@ -12,12 +11,19 @@ if (location.href.indexOf('dict.cn') != -1) {
 
     var killProcess = setInterval(findNode, 50);
 
-    if(document.querySelector('.not') != null){
-      port.postMessage({height: 52});
-    }else{
-      port.postMessage({ height: content.children[0].clientHeight }); //发送消息: result window height
+    if (document.querySelector('.not') != null) {
+        windowHeight= 52;
+    } else {
+        windowHeight=content.children[0].clientHeight;
     }
-    
+    port.postMessage({ height: windowHeight });
+
+
+       chrome.runtime.sendMessage({ setHeight: windowHeight }, function(response) {
+        console.log('[INJECTED dict.cn]set windowHeight: ' + windowHeight)
+    });
+
+
     function findNode() {
         var node = document.getElementById('dictHcClosetip');
         if (node != null) {

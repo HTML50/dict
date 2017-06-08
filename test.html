@@ -15,6 +15,8 @@
 		transform:scale(0);
 		opacity: 0;
 		display: none;
+		left:0;
+		top:0;
 		transition: transform 0.5s cubic-bezier(0.46, 1.4, 0.84, 1.03),box-shadow 0.8s ease,opacity 0.8s cubic-bezier(0, 1.15, 1, 1);
 	}
 
@@ -41,9 +43,7 @@
 		transform: rotateZ(-45deg);
 	}
 	#injectedResultBox{
-		width:100%;
 		margin-top: 15px;
-		height: 100%;
 	}
 </style>
 <body>
@@ -52,7 +52,7 @@ Hello
 
 
 <dictBox id="dictBox" class="dict-box transiton-in">
-<dictBoxBar id='dictBoxBar'><img id="pinOnTop" src="pin.png" title="pin on top" draggable="false" class="not-pinned"></dictBoxBar>
+<dictBoxBar id='dictBoxBar'><img id="pinOnTop" src="img/pin.png" title="pin on top" draggable="false" class="not-pinned"></dictBoxBar>
 <iframe id="injectedResultBox" src="http://dict.cn/abb" scrolling="no"></iframe>
 </dictBox>
 

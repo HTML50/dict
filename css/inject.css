@@ -1,5 +1,6 @@
 .dict-box {
     background: #fff;
+    z-index:2147483647;
     position: fixed;
     width: 330px;
     height: 400px;

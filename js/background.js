@@ -1,4 +1,5 @@
-var isDragSearch;
+var isDragSearch,injectedWindowHeight;
+
 chrome.storage.local.get('isDragSearch',function(data){
     if(data.isDragSearch)
     {
@@ -7,7 +8,9 @@ chrome.storage.local.get('isDragSearch',function(data){
     else{
         isDragSearch=false;
     }
+    console.log("[BACKGROUND]initial isDragSearch value: "+isDragSearch)
 });
+
 
 
 chrome.runtime.onMessage.addListener(
@@ -20,4 +23,13 @@ chrome.runtime.onMessage.addListener(
 	      console.log("BACKGROUND: set dragSearch to: "+isDragSearch)
 	      sendResponse({param: "set dragSearch to: "+isDragSearch});
 	  }
+	   if(request.setHeight != undefined){
+	   		injectedWindowHeight = request.setHeight;
+	   		console.log("BACKGROUND: set height")
+	      sendResponse({param: "set height ok"});
+	    }
+	    if(request.get == 'height'){
+	   		console.log("BACKGROUND: get height")
+	      sendResponse({param: injectedWindowHeight});
+	    }
   });

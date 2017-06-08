@@ -25,8 +25,6 @@ input.addEventListener('blur', function() {
     input.focus();
 });
 
-
-
 dragSearch.addEventListener('click', function() {
     if (isDragSearch) {
         document.querySelector('#dragSearch .icon').classList.remove('enable');
@@ -58,8 +56,8 @@ function lookup(w) {
 
 
 //recieve dict.cn callback window height
-var port = chrome.runtime.connect({ name: "dict" }),
-    isDragSearch; chrome.runtime.onConnect.addListener(function(port) {
+var port = chrome.runtime.connect({ name: "dict" });
+chrome.runtime.onConnect.addListener(function(port) {
     console.assert(port.name == "dict");
     port.onMessage.addListener(function(msg) {
         if (msg.height) {
@@ -68,7 +66,7 @@ var port = chrome.runtime.connect({ name: "dict" }),
                 result.height = 100;
                 result.src = '404.html'
             } else {
-                result.height = msg.height;
+                result.height = h;
             }
         }
     });
