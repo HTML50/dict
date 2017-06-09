@@ -1,139 +1,374 @@
 <!DOCTYPE html>
 <html>
 <meta charset="utf-8">
+
 <head>
-	<title>dict</title>
+    <title>dict</title>
 </head>
 <style type="text/css">
-
-	*{margin:0;padding: 0;border: none}
-		.dict-box{
-		position: fixed;
-	  width: 330px;
-	  height: 400px;
-		background: rgba(255,255,255,0.5);
-		transform:scale(0);
-		opacity: 0;
-		display: none;
-		left:0;
-		top:0;
-		transition: transform 0.5s cubic-bezier(0.46, 1.4, 0.84, 1.03),box-shadow 0.8s ease,opacity 0.8s cubic-bezier(0, 1.15, 1, 1);
-	}
-
-
-	.show-dictBox {
-	box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-  transform: scale(1);
-  opacity: 1;
+* {
+    margin: 0;
+    padding: 0;
+    border: none
 }
 
-	#dictBoxBar{
-		position: absolute;
-		background: #eee;
-		width: 100%;
-		height: 42px;
-		cursor: move;
-    user-select: none; 
-	}
-	.not-pinned{
-		padding: 5px;
-		transition: transform 0.1s ease;
-	}
-	.pinned{
-		transform: rotateZ(-45deg);
-	}
-	#injectedResultBox{
-		margin-top: 15px;
-	}
+.dict-box {
+    position: fixed;
+    width: 330px;
+    height: 400px;
+    background: rgba(255, 255, 255, 0.5);
+    transform: scale(0);
+    opacity: 0;
+    display: none;
+    left: 0;
+    top: 0;
+    transition: transform 0.3s cubic-bezier(0.46, 1.4, 0.84, 1.03), box-shadow 0.3s ease, opacity 0.3s cubic-bezier(0, 1.15, 1, 1);
+}
+
+.show-dictBox {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    transform: scale(1);
+    opacity: 1;
+}
+
+#dictBoxBar {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    background: #eee;
+    width: 100%;
+    height: 42px;
+    cursor: move;
+    user-select: none;
+}
+
+.not-pinned {
+    padding: 5px;
+    transition: transform 0.1s ease;
+}
+
+.pinned {
+    transform: rotateZ(-45deg);
+}
+
+.close{
+	cursor: pointer;
+	opacity: 0.3;
+	padding-right: 10px; 
+}
+
+#injectedResultBox {
+    margin-top: 15px;
+}
 </style>
+
 <body>
-Hello
-<br>Goood<br>Nice<br>beautiful<br>interesting<br>in your face<br>microminiaturization<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    Hello
+    <br>Goood
+    <br>Nice
+    <br>beautiful
+    <br>interesting
+    <br>in your face and what it is
+    <br>microminiaturization
+    <br>Goood
+    <br>Nice
+    <br>beautiful
+    <br>interesting
+    <br>in your face
+    <br>microminiaturization
+    <br>
+    <br>Goood
+    <br>Nice
+    <br>beautiful
+    <br>interesting
+    <br>in your face
+    <br>microminiaturization
+    <br>
+    <br>Goood
+    <br>Nice
+    <br>beautiful
+    <br>interesting
+    <br>in your face
+    <br>microminiaturization
+    <br>
+    <br>Goood
+    <br>Nice
+    <br>beautiful
+    <br>interesting
+    <br>in your face
+    <br>microminiaturization
+    <br>
+    <br>Goood
+    <br>Nice
+    <br>beautiful
+    <br>interesting
+    <br>in your face
+    <br>microminiaturization
+    <br>
+    <br>Goood
+    <br>Nice
+    <br>beautiful
+    <br>interesting
+    <br>in your face
+    <br>microminiaturization
+    <br>
+    <br>Goood
+    <br>Nice
+    <br>beautiful
+    <br>interesting
+    <br>in your face
+    <br>microminiaturization
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <dictBox id="dictBox" class="dict-box transiton-in">
+        <dictBoxBar id='dictBoxBar'>
+        <img id="pinIt" src="img/pin.png" title="pin on top" draggable="false" class="not-pinned">
+        <img id="closeIt" src="img/close.png" title="close" draggable="false" class="close">
+        </dictBoxBar>
+        <iframe id="injectedResultBox" src="http://dict.cn/abb" scrolling="no"></iframe>
+    </dictBox>
+    <script>
+    var isMouseDown,
+        initX, initY,mouseX,mouseY,
+        dictBoxBar = document.getElementById('dictBoxBar'),
+        isBoxOpened = false,
+        isPinned = false,
+        hiddenProcess, hiddenProcessDetectProcess;
 
+    dictBoxBar.addEventListener('mousedown', function(e) {
+        isMouseDown = true;
+        initX = e.clientX - dictBox.offsetLeft;
+        initY = e.clientY - dictBox.offsetTop;
+        mouseX = e.offsetX;
+        dictBox.style.opacity = 0.5;
+        console.log(e.pageX,e.offsetX,e.screenX,e.x)
+    })
 
-<dictBox id="dictBox" class="dict-box transiton-in">
-<dictBoxBar id='dictBoxBar'><img id="pinOnTop" src="img/pin.png" title="pin on top" draggable="false" class="not-pinned"></dictBoxBar>
-<iframe id="injectedResultBox" src="http://dict.cn/abb" scrolling="no"></iframe>
-</dictBox>
+    document.addEventListener('mousemove', function(e) {
+        if (isMouseDown) {
+            var cx=e.clientX - initX,cy=e.clientY -initY;
+            if(cx < 0 ){
+                cx = 0;
+            }
+            if(cy< 0 ){
+                cy = 0;
+            }
+            if( window.innerWidth - e.clientX + mouseX < 330 ){
+                console.log('right')
+                cx= window.innerWidth -330;
+            }
+            if(e.clientY > window.innerHeight -330 ){
+                cy= window.innerHeight -330;
+            }
+            dictBox.style.left = cx  + 'px';
+            dictBox.style.top = cy + 'px';
+        }
+    })
 
-<script>
+    dictBoxBar.addEventListener('mouseup', function() {
+        isMouseDown = false;
+        dictBox.style.opacity = 1;
+    })
 
-var isMouseDown,
-initX,initY,
-dictBoxBar = document.getElementById('dictBoxBar'),
-isBoxOpened = false,isPinned=false,hiddenProcess,hiddenProcessDetectProcess;
+    document.addEventListener('mouseup', function(e) {
+        var selectWord = getSelection().toString().trim();
 
-dictBoxBar.addEventListener('mousedown',function(e){
-	isMouseDown = true;
-	initX = e.clientX - dictBox.offsetLeft;
-	initY = e.clientY - dictBox.offsetTop;
-	dictBox.style.opacity = 0.5;
-})
+        if (isBoxOpened == false) {
+            if (selectWord != '') {
+                console.log('X: ' ,e.clientX,window.innerHeight - e.clientX)
+                console.log('Y: ' ,e.clientY,window.innerHeight - e.clientY)
+                var rsTop = e.clientY + 20,
+                    rsLeft = e.clientX + 20;
 
-	document.addEventListener('mousemove',function(e){
-		if(isMouseDown){
-			dictBox.style.left = (e.clientX - initX) +'px';
-			dictBox.style.top = (e.clientY - initY)+'px';
-		}
-	})
+                if (window.innerHeight - e.clientY < 400) {
+                    rsTop = window.innerHeight - 400;
+                    console.log('yes',rsTop)
+                }
+                if (window.innerWidth - e.clientX < 330) {
+                    rsLeft = window.innerWidth - 330;
+                }
+                dictBox.style.left = rsLeft + 'px';
+                dictBox.style.top = rsTop + 'px';
+                dictBox.style.display = 'block';
+                setTimeout(function() {
+                    dictBox.classList.add('show-dictBox');
+                }, 0)
+                isBoxOpened = true; //这个true放在lookup()下面就不管用了，难道是因为lookup是content_script中定义的缘故？我一会放在一起试试(yes it is!)
+                lookup(selectWord);
+            }
+        } else {
+            if (selectWord != '') {
+                lookup(selectWord);
+            } else {
+            	if (e.target.nodeName == 'DICTBOXBAR' || e.target.nodeName == 'IMG' || isPinned) {
+                    return false;
+                }
+                close(e);
+            }
+        }
 
-dictBoxBar.addEventListener('mouseup',function(){
-	isMouseDown = false;
-	dictBox.style.opacity = 1;
-})
+    });
 
-document.addEventListener('mouseup',function(e){
-	var selectWord = getSelection().toString().trim();
+    closeIt.addEventListener('click', function(e) {
+    	close(e);
+    });
+    pinIt.addEventListener('click', function(e) {
+        if (isPinned) {
+            pinIt.classList.remove('pinned');
+            isPinned = false;
+        } else {
+            pinIt.classList.add('pinned');
+            isPinned = true;
+        }
+    })
 
-	if(isBoxOpened == false){
-    if(selectWord != ''){
-    	dictBox.style.left = e.clientX + 20 + 'px';
-    	dictBox.style.top = e.clientY + 20 + 'px';
-    	dictBox.style.display = 'block';
-    	setTimeout(function(){dictBox.classList.add('show-dictBox');},0)
-    	isBoxOpened = true;//这个true放在lookup()下面就不管用了，难道是因为lookup是content_script中定义的缘故？我一会放在一起试试(yes it is!)
-      lookup(selectWord);
-      window.getSelection().collapseToStart();
+    function lookup(w) {
+        injectedResultBox.src = 'http://dict.cn/' + w;
     }
-	}else{
-		if(selectWord != ''){
-			lookup(selectWord);
-		}else{
-			if( e.target.nodeName == 'DICTBOXBAR' || e.target.nodeName == 'IMG' || isPinned){
-			return false;
-		}
-		dictBox.classList.remove('show-dictBox');
-		hiddenProcess = setTimeout(function(){
-			dictBox.style.display = 'none';
-		},800);
-		hiddenProcessDetectProcess = setInterval(function(){
-				if(isBoxOpened){
-					clearTimeout(hiddenProcess);
-					clearInterval(hiddenProcessDetectProcess);
-				}
-			},16)
-		isBoxOpened = false;
-		}
-	}
-    
-})
 
-
-pinOnTop.addEventListener('click',function(e){
-	if(isPinned){
-		pinOnTop.classList.remove('pinned');
-		isPinned = false;
-	}else{
-		pinOnTop.classList.add('pinned');
-		isPinned = true;
-	}
-	//e.stopPropagation();
-})
-
-function lookup(w){
-  injectedResultBox.src='http://dict.cn/'+w;
+    function close(e){
+                dictBox.classList.remove('show-dictBox');
+                hiddenProcess = setTimeout(function() {
+                    dictBox.style.display = 'none';
+                }, 300);
+                hiddenProcessDetectProcess = setInterval(function() {
+                    if (isBoxOpened) {
+                        clearTimeout(hiddenProcess);
+                        clearInterval(hiddenProcessDetectProcess);
+                    }
+                }, 16)
+                isBoxOpened = false;
+    }
+    </script>
 }
-
-</script>
 </body>
+
 </html>
