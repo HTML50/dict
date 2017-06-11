@@ -46,14 +46,25 @@ body {
     font-size: 0.8rem;
 }
 
-#dragSearch {
+.item {
     padding: 5px;
 }
 
-#dragSearch:hover {
+.hover:hover {
     cursor: pointer;
     background: #dcdcdc;
 }
+
+
+
+.help:hover:after{
+     content: '1.sfasdf\A 2.asdfasdf\A 3.asdfasdf';
+     position: absolute;
+     height: 300px;
+     top: 60px;
+     left: 30px;
+}
+
 
 .enable::after {
     content: '√';
@@ -66,11 +77,14 @@ body {
     <input id="input" type="text" placeholder="SEARCH NOW" autofocus="true" maxlength="34">
     <iframe id="result" scrolling="no"></iframe>
     <setting class="setting">
-        <span id="dragSearch">
+        <span id="dragSearch" class="item hover">
 		<span>划词搜索</span>
         <span class="icon"></span>
         </span>
-        <span>高级</span>
+        <span>
+        <span id="options" class="hover item">高级</span>
+        <span id="help" class="hover item help">？</span>
+        </span>
     </setting>
     <script src="js/popup.js"></script>
 </body>
