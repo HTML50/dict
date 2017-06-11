@@ -42,13 +42,23 @@ dragSearch.addEventListener('click', function() {
 
     //send isDragSearch to all tabs
     chrome.tabs.query({}, function(tabs) {
-        for(var i=0;i<tabs.length;i++){
-            chrome.tabs.sendMessage(tabs[i].id, {dragSearchStatusChange: isDragSearch}, function(response) {
+        for (var i = 0; i < tabs.length; i++) {
+            chrome.tabs.sendMessage(tabs[i].id, { dragSearchStatusChange: isDragSearch }, function(response) {
                 console.log(response.param);
             });
         }
     });
 })
+
+help.addEventListener('mouseover', function() {
+    helpTip.style.display = 'block';
+    setTimeout(function() { helpTip.style.opacity = 1; }, 0)
+});
+help.addEventListener('mouseleave', function() {
+    helpTip.style.opacity = 0;
+    setTimeout(function() { helpTip.style.display = 'none'; }, 300)
+});
+
 
 function lookup(w) {
     result.src = 'http://dict.cn/' + w;

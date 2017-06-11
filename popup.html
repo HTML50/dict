@@ -33,6 +33,18 @@ body {
     width: 1330px;
 }
 
+#helpTip{
+    position: absolute;
+    left: 40px;
+    top: 75px;
+    background: #d1ffce;
+    font-size: 1rem;
+    padding: 10px;
+    display: none;
+    opacity: 0;
+    transition: opacity 300ms;
+}
+
 .setting {
     padding: 10px 20px;
     ;
@@ -53,16 +65,15 @@ body {
 .hover:hover {
     cursor: pointer;
     background: #dcdcdc;
+
 }
 
 
-
-.help:hover:after{
-     content: '1.sfasdf\A 2.asdfasdf\A 3.asdfasdf';
-     position: absolute;
-     height: 300px;
-     top: 60px;
-     left: 30px;
+.help {
+    font-weight: bold;
+}
+.help:hover{
+    cursor: help;
 }
 
 
@@ -71,6 +82,8 @@ body {
     font-weight: bold;
     color: green;
 }
+
+
 </style>
 
 <body>
@@ -86,6 +99,12 @@ body {
         <span id="help" class="hover item help">？</span>
         </span>
     </setting>
+    <help id="helpTip">
+        <h1>HELP:</h1>
+        <p>1.呼出词典的默认快捷键为 Alt + Shift + D</p>
+        <p>2.划词搜索默认开启，且需要按下Shift键进行划词</p>
+        <p>3.所有设置可以在设置页面更改</p>
+    </help>
     <script src="js/popup.js"></script>
 </body>
 

@@ -44,6 +44,11 @@ function init() {
         isPinned = false,
         hiddenProcess, hiddenProcessDetectProcess;
 
+
+
+
+  
+
     dictBoxBar.addEventListener('mousedown', function(e) {
         isMouseDown = true;
         document.body.classList.add('no-select');
@@ -51,6 +56,11 @@ function init() {
         initY = e.clientY - dictBox.offsetTop;
         mouseX = e.offsetX;
         dictBox.style.opacity = 0.5;
+    })
+
+
+      dictBoxBar.addEventListener('mouseup', function(e) {
+      mouseupHandler(e);
     })
 
     document.addEventListener('mousemove', function(e) {
@@ -74,9 +84,6 @@ function init() {
         }
     })
 
-    dictBoxBar.addEventListener('mouseup', function(e) {
-      mouseupHandler(e);
-    })
 
     document.addEventListener('mouseup', function(e) {
             if(e.clientY > window.innerWidth || e.clientY<0 || e.clientX<0 ||e.clientX>window.innerHeight){
@@ -111,14 +118,22 @@ function init() {
                     if (e.target.nodeName == 'DICTBOXBAR' || e.target.nodeName == 'IMG' || isPinned) {
                     return false;
                 }
-                close(e);
+                close();
                 }
             }
     })
 
-    closeIt.addEventListener('click', function(e) {
-      close(e);
+    document.addEventListener('keydown',function(e){
+      if(e.keyCode == '27' && !isPinned && isBoxOpened){
+        close()
+      }
+    })
+
+
+    closeIt.addEventListener('click', function() {
+      close();
     });
+
     pinIt.addEventListener('click', function(e) {
         if (isPinned) {
             pinIt.classList.remove('pinned');
@@ -148,7 +163,7 @@ function init() {
         //setTimeout(setHeight;,0)
     }
 
-    function close(e){
+    function close(){
                 dictBox.classList.remove('show-dictBox');
                 hiddenProcess = setTimeout(function() {
                     dictBox.style.display = 'none';
