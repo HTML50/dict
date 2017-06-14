@@ -18,7 +18,6 @@ if (location.href.indexOf('dict.cn') != -1) {
     }
     port.postMessage({ height: windowHeight });
 
-
        chrome.runtime.sendMessage({ setHeight: windowHeight }, function(response) {
         console.log('[INJECTED dict.cn]set windowHeight: ' + windowHeight)
     });

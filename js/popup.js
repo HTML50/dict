@@ -25,6 +25,11 @@ input.addEventListener('blur', function() {
     input.focus();
 });
 
+options.addEventListener('click',function(){
+    location.href = 'options.html';
+
+});
+
 dragSearch.addEventListener('click', function() {
     if (isDragSearch) {
         document.querySelector('#dragSearch .icon').classList.remove('enable');
@@ -56,7 +61,7 @@ help.addEventListener('mouseover', function() {
 });
 help.addEventListener('mouseleave', function() {
     helpTip.style.opacity = 0;
-    setTimeout(function() { helpTip.style.display = 'none'; }, 300)
+     helpTip.style.display = 'none'
 });
 
 
@@ -73,7 +78,7 @@ chrome.runtime.onConnect.addListener(function(port) {
         if (msg.height) {
             var h = msg.height;
             if (h == 52) {
-                result.height = 100;
+                result.height = 120;
                 result.src = '404.html'
             } else {
                 result.height = h;

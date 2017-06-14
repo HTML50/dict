@@ -12,16 +12,22 @@
     border: none
 }
 
+body,
+html,
+div {
+    height: 100%;
+    width: 100%;
+}
+
 .dict-box {
+    user-select: none;
+    background: #fff;
+    z-index: 2147483647;
     position: fixed;
-    width: 330px;
-    height: 400px;
-    background: rgba(255, 255, 255, 0.5);
-    transform: scale(0);
-    opacity: 0;
-    display: none;
     left: 0;
     top: 0;
+    width: 330px;
+    height: auto;
     transition: transform 0.3s cubic-bezier(0.46, 1.4, 0.84, 1.03), box-shadow 0.3s ease, opacity 0.3s cubic-bezier(0, 1.15, 1, 1);
 }
 
@@ -42,333 +48,107 @@
     user-select: none;
 }
 
-.not-pinned {
-    padding: 5px;
-    transition: transform 0.1s ease;
+.no-select {
+    user-select: none;
+}
+
+.pointer-events {
+    pointer-events: none;
 }
 
 .pinned {
     transform: rotateZ(-45deg);
 }
 
-.close{
-	cursor: pointer;
-	opacity: 0.3;
-	padding-right: 10px; 
+.not-pinned {
+    padding: 5px;
+    transition: transform 0.1s ease;
+    cursor: pointer;
+}
+
+.no-border {
+    border: none;
+}
+
+.close {
+    cursor: pointer;
+    opacity: 0.3;
+    padding-right: 10px;
 }
 
 #injectedResultBox {
-    margin-top: 15px;
+    width: 330px;
+    display: block;
+    background: #ccc;
 }
 </style>
 
 <body>
-    Hello
-    <br>Goood
-    <br>Nice
-    <br>beautiful
-    <br>interesting
-    <br>in your face and what it is
-    <br>microminiaturization
-    <br>Goood
-    <br>Nice
-    <br>beautiful
-    <br>interesting
-    <br>in your face
-    <br>microminiaturization
-    <br>
-    <br>Goood
-    <br>Nice
-    <br>beautiful
-    <br>interesting
-    <br>in your face
-    <br>microminiaturization
-    <br>
-    <br>Goood
-    <br>Nice
-    <br>beautiful
-    <br>interesting
-    <br>in your face
-    <br>microminiaturization
-    <br>
-    <br>Goood
-    <br>Nice
-    <br>beautiful
-    <br>interesting
-    <br>in your face
-    <br>microminiaturization
-    <br>
-    <br>Goood
-    <br>Nice
-    <br>beautiful
-    <br>interesting
-    <br>in your face
-    <br>microminiaturization
-    <br>
-    <br>Goood
-    <br>Nice
-    <br>beautiful
-    <br>interesting
-    <br>in your face
-    <br>microminiaturization
-    <br>
-    <br>Goood
-    <br>Nice
-    <br>beautiful
-    <br>interesting
-    <br>in your face
-    <br>microminiaturization
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <dictBox id="dictBox" class="dict-box transiton-in">
-        <dictBoxBar id='dictBoxBar'>
-        <img id="pinIt" src="img/pin.png" title="pin on top" draggable="false" class="not-pinned">
-        <img id="closeIt" src="img/close.png" title="close" draggable="false" class="close">
-        </dictBoxBar>
-        <iframe id="injectedResultBox" src="http://dict.cn/abb" scrolling="no"></iframe>
-    </dictBox>
     <script>
+    var injectedHTML = document.createElement("DIV");
+    injectedHTML.innerHTML = '<dictBox id="dictBox" class="dict-box">\
+  <dictBoxBar id="dictBoxBar" class="no-select">TOP</dictBoxBar>\
+  <injectedResultBox id="injectedResultBox" style="height:200px;">CONTENT</injectedResultBox>\
+  </dictBox>';
+
+    document.body.appendChild(injectedHTML);
+
     var isMouseDown,
-        initX, initY,mouseX,mouseY,
-        dictBoxBar = document.getElementById('dictBoxBar'),
-        isBoxOpened = false,
-        isPinned = false,
-        hiddenProcess, hiddenProcessDetectProcess;
+        initX, initY,
+        dictBoxBar = document.getElementById('dictBoxBar');
+
 
     dictBoxBar.addEventListener('mousedown', function(e) {
         isMouseDown = true;
+        document.body.classList.add('no-select');
+        injectedResultBox.classList.add('pointer-events')
         initX = e.clientX - dictBox.offsetLeft;
         initY = e.clientY - dictBox.offsetTop;
         mouseX = e.offsetX;
+        mouseY = e.offsetY;
         dictBox.style.opacity = 0.5;
-        console.log(e.pageX,e.offsetX,e.screenX,e.x)
+    })
+
+    dictBoxBar.addEventListener('mouseup', function(e) {
+        mouseupHandler();
     })
 
     document.addEventListener('mousemove', function(e) {
         if (isMouseDown) {
-            var cx=e.clientX - initX,cy=e.clientY -initY;
-            if(cx < 0 ){
+            var cx = e.clientX - initX,
+                cy = e.clientY - initY;
+            if (cx < 0) {
                 cx = 0;
             }
-            if(cy< 0 ){
+            if (cy < 0) {
                 cy = 0;
             }
-            if( window.innerWidth - e.clientX + mouseX < 330 ){
+            if (window.innerWidth - e.clientX + mouseX < 346) {
                 console.log('right')
-                cx= window.innerWidth -330;
+                cx = window.innerWidth - 330;
             }
-            if(e.clientY > window.innerHeight -330 ){
-                cy= window.innerHeight -330;
+            if (e.clientY > window.innerHeight - parseInt(injectedResultBox.style.height) - 42 + mouseY) {
+                cy = window.innerHeight - 42 - parseInt(injectedResultBox.style.height);
             }
-            dictBox.style.left = cx  + 'px';
+            dictBox.style.left = cx + 'px';
             dictBox.style.top = cy + 'px';
         }
     })
 
-    dictBoxBar.addEventListener('mouseup', function() {
-        isMouseDown = false;
-        dictBox.style.opacity = 1;
-    })
-
     document.addEventListener('mouseup', function(e) {
-        var selectWord = getSelection().toString().trim();
-
-        if (isBoxOpened == false) {
-            if (selectWord != '') {
-                console.log('X: ' ,e.clientX,window.innerHeight - e.clientX)
-                console.log('Y: ' ,e.clientY,window.innerHeight - e.clientY)
-                var rsTop = e.clientY + 20,
-                    rsLeft = e.clientX + 20;
-
-                if (window.innerHeight - e.clientY < 400) {
-                    rsTop = window.innerHeight - 400;
-                    console.log('yes',rsTop)
-                }
-                if (window.innerWidth - e.clientX < 330) {
-                    rsLeft = window.innerWidth - 330;
-                }
-                dictBox.style.left = rsLeft + 'px';
-                dictBox.style.top = rsTop + 'px';
-                dictBox.style.display = 'block';
-                setTimeout(function() {
-                    dictBox.classList.add('show-dictBox');
-                }, 0)
-                isBoxOpened = true; //这个true放在lookup()下面就不管用了，难道是因为lookup是content_script中定义的缘故？我一会放在一起试试(yes it is!)
-                lookup(selectWord);
-            }
-        } else {
-            if (selectWord != '') {
-                lookup(selectWord);
-            } else {
-            	if (e.target.nodeName == 'DICTBOXBAR' || e.target.nodeName == 'IMG' || isPinned) {
-                    return false;
-                }
-                close(e);
-            }
-        }
-
-    });
-
-    closeIt.addEventListener('click', function(e) {
-    	close(e);
-    });
-    pinIt.addEventListener('click', function(e) {
-        if (isPinned) {
-            pinIt.classList.remove('pinned');
-            isPinned = false;
-        } else {
-            pinIt.classList.add('pinned');
-            isPinned = true;
+        if (e.clientY > window.innerWidth || e.clientY < 0 || e.clientX < 0 || e.clientX > window.innerHeight) {
+            mouseupHandler();
         }
     })
 
-    function lookup(w) {
-        injectedResultBox.src = 'http://dict.cn/' + w;
-    }
 
-    function close(e){
-                dictBox.classList.remove('show-dictBox');
-                hiddenProcess = setTimeout(function() {
-                    dictBox.style.display = 'none';
-                }, 300);
-                hiddenProcessDetectProcess = setInterval(function() {
-                    if (isBoxOpened) {
-                        clearTimeout(hiddenProcess);
-                        clearInterval(hiddenProcessDetectProcess);
-                    }
-                }, 16)
-                isBoxOpened = false;
+    function mouseupHandler() {
+        isMouseDown = false;
+        document.body.classList.remove('no-select');
+        injectedResultBox.classList.remove('pointer-events');
+        dictBox.style.opacity = 1;
     }
     </script>
-}
 </body>
 
 </html>
