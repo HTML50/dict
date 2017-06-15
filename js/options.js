@@ -6,3 +6,7 @@ openSettings.addEventListener('click',function(e) {
 			active : true
 		});
 	})
+
+backward.addEventListener('click',function(){
+	location.href='popup.html'
+})

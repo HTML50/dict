@@ -3,152 +3,146 @@
 <meta charset="utf-8">
 
 <head>
-    <title>dict</title>
+  <title>dict</title>
 </head>
 <style type="text/css">
 * {
-    margin: 0;
-    padding: 0;
-    border: none
+  margin: 0;
+  padding: 0;
+  border: none
 }
 
 body,
 html,
 div {
-    height: 100%;
-    width: 100%;
+  height: 100%;
+  width: 100%;
 }
 
 .dict-box {
-    user-select: none;
-    background: #fff;
-    z-index: 2147483647;
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 330px;
-    height: auto;
-    transition: transform 0.3s cubic-bezier(0.46, 1.4, 0.84, 1.03), box-shadow 0.3s ease, opacity 0.3s cubic-bezier(0, 1.15, 1, 1);
-}
-
-.show-dictBox {
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-    transform: scale(1);
-    opacity: 1;
+  user-select: none;
+  background: #f0f0f0;
+  z-index: 2147483647;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 200px;
 }
 
 #dictBoxBar {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-    background: #eee;
-    width: 100%;
-    height: 42px;
-    cursor: move;
-    user-select: none;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  background: #ccc;
+  width: 100%;
+  height: 40px;
+  cursor: move;
+  user-select: none;
 }
 
 .no-select {
-    user-select: none;
+  user-select: none;
 }
 
 .pointer-events {
-    pointer-events: none;
-}
-
-.pinned {
-    transform: rotateZ(-45deg);
-}
-
-.not-pinned {
-    padding: 5px;
-    transition: transform 0.1s ease;
-    cursor: pointer;
+  pointer-events: none;
 }
 
 .no-border {
-    border: none;
-}
-
-.close {
-    cursor: pointer;
-    opacity: 0.3;
-    padding-right: 10px;
+  border: none;
 }
 
 #injectedResultBox {
-    width: 330px;
-    display: block;
-    background: #ccc;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  background: #eee;
 }
 </style>
 
 <body>
-    <script>
-    var injectedHTML = document.createElement("DIV");
-    injectedHTML.innerHTML = '<dictBox id="dictBox" class="dict-box">\
-  <dictBoxBar id="dictBoxBar" class="no-select">TOP</dictBoxBar>\
-  <injectedResultBox id="injectedResultBox" style="height:200px;">CONTENT</injectedResultBox>\
-  </dictBox>';
+  <script>
+    var draggalbe={} ;
+    
+    draggalbe=(function() {
+    draggalbe.init = function() {
+      var injectedHTML = document.createElement("DIV");
+      injectedHTML.innerHTML = '<dictBox id="dictBox" class="dict-box">\
+    <dictBoxBar id="dictBoxBar" class="no-select"></dictBoxBar>\
+    <injectedResultBox id="injectedResultBox">CONTENT</injectedResultBox>\
+    </dictBox>';
+      document.body.appendChild(injectedHTML);
 
-    document.body.appendChild(injectedHTML);
 
-    var isMouseDown,
-        initX, initY,
-        dictBoxBar = document.getElementById('dictBoxBar');
-
-
-    dictBoxBar.addEventListener('mousedown', function(e) {
-        isMouseDown = true;
+      dictBoxBar.addEventListener('mousedown', function(e) {
+        draggalbe.isMouseDown = true;
         document.body.classList.add('no-select');
-        injectedResultBox.classList.add('pointer-events')
-        initX = e.clientX - dictBox.offsetLeft;
-        initY = e.clientY - dictBox.offsetTop;
-        mouseX = e.offsetX;
-        mouseY = e.offsetY;
+        injectedResultBox.classList.add('pointer-events');
+        initX = e.offsetX;
+        initY = e.offsetY;
         dictBox.style.opacity = 0.5;
-    })
+      })
 
-    dictBoxBar.addEventListener('mouseup', function(e) {
-        mouseupHandler();
-    })
+      dictBoxBar.addEventListener('mouseup', function(e) {
+        draggalbe.mouseupHandler();
+      })
 
-    document.addEventListener('mousemove', function(e) {
-        if (isMouseDown) {
-            var cx = e.clientX - initX,
-                cy = e.clientY - initY;
-            if (cx < 0) {
-                cx = 0;
-            }
-            if (cy < 0) {
-                cy = 0;
-            }
-            if (window.innerWidth - e.clientX + mouseX < 346) {
-                console.log('right')
-                cx = window.innerWidth - 330;
-            }
-            if (e.clientY > window.innerHeight - parseInt(injectedResultBox.style.height) - 42 + mouseY) {
-                cy = window.innerHeight - 42 - parseInt(injectedResultBox.style.height);
-            }
-            dictBox.style.left = cx + 'px';
-            dictBox.style.top = cy + 'px';
+
+      document.addEventListener('mousemove', function(e) {
+        if (draggalbe.isMouseDown) {
+          var cx = e.clientX - initX,
+            cy = e.clientY - initY;
+          if (cx < 0) {
+            cx = 0;
+          }
+          if (cy < 0) {
+            cy = 0;
+          }
+          if (window.innerWidth - e.clientX + initX < draggalbe.width + 16) {
+            cx = window.innerWidth - draggalbe.width;
+          }
+          if (e.clientY > window.innerHeight - draggalbe.height - dictBoxBar.offsetHeight + initY) {
+            cy = window.innerHeight - dictBoxBar.offsetHeight - draggalbe.height;
+          }
+          dictBox.style.left = cx + 'px';
+          dictBox.style.top = cy + 'px';
         }
-    })
+      })
 
-    document.addEventListener('mouseup', function(e) {
+
+      document.addEventListener('mouseup', function(e) {
         if (e.clientY > window.innerWidth || e.clientY < 0 || e.clientX < 0 || e.clientX > window.innerHeight) {
-            mouseupHandler();
+          draggalbe.mouseupHandler();
         }
-    })
-
-
-    function mouseupHandler() {
-        isMouseDown = false;
-        document.body.classList.remove('no-select');
-        injectedResultBox.classList.remove('pointer-events');
-        dictBox.style.opacity = 1;
+      });
     }
-    </script>
+
+    draggalbe.mouseupHandler = function() {
+      draggalbe.isMouseDown = false;
+      document.body.classList.remove('no-select');
+      injectedResultBox.classList.remove('pointer-events');
+      dictBox.style.opacity = 1;
+    }
+    
+
+      return {
+      isMouseDown:false,
+      initX: 0,
+      initY: 0,
+      height: 160,
+      width: 200,
+      dictBoxBar: document.getElementById('dictBoxBar'),
+      init:draggalbe.init,
+      mouseupHandler: draggalbe.mouseupHandler
+    }
+
+  })();
+
+
+draggalbe.init() 
+  </script>
 </body>
 
 </html>

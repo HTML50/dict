@@ -44,15 +44,12 @@ function init() {
         isPinned = false,
         hiddenProcess, hiddenProcessDetectProcess;
 
-
     dictBoxBar.addEventListener('mousedown', function(e) {
         isMouseDown = true;
         document.body.classList.add('no-select');
         injectedResultBox.classList.add('pointer-events')
-        initX = e.clientX - dictBox.offsetLeft;
-        initY = e.clientY - dictBox.offsetTop;
-        mouseX = e.offsetX;
-        mouseY = e.offsetY;
+        initX = e.offsetX;
+        initY = e.offsetY;
         dictBox.style.opacity = 0.5;
     })
 
@@ -68,12 +65,12 @@ function init() {
             if(cy< 0 ){
                 cy = 0;
             }
-            if( window.innerWidth - e.clientX + mouseX < 346 ){
+            if( window.innerWidth - e.clientX + initX < injectedResultBox.offsetWidth - 16 ){
                 console.log('right')
-                cx= window.innerWidth -346;
+                cx= window.innerWidth - injectedResultBox.offsetWidth - 16;
             }
-            if(e.clientY > window.innerHeight - parseInt(injectedResultBox.style.height) - 42 + mouseY){
-                cy= window.innerHeight  - 42 -parseInt(injectedResultBox.style.height);
+            if(e.clientY > window.innerHeight - dictBoxBar.offsetHeight - injectedResultBox.offsetHeight + initY){
+                cy= window.innerHeight  - injectedResultBox.offsetHeight -dictBoxBar.offsetHeight;
             }
             dictBox.style.left = cx  + 'px';
             dictBox.style.top = cy + 'px';

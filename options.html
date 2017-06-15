@@ -1,22 +1,18 @@
-
 <html>
     <head>
         <title>MeasureIt Options</title>
-
+        <meta charset="utf-8">
         <style>
-            @import url(http://fonts.googleapis.com/css?family=Roboto:100,300,400,700);
 
             * {
                 margin: 0;
                 padding: 0;
-
-                font: 16px/125% 'Roboto', sans-serif;
-
                 box-sizing: border-box;
             }
 
-            html {}
-            body { background: #f5f5f5; }
+            body { background: #f5f5f5; padding: 20px;
+                font-size: 16px;
+            }
 
             .box {
                 border: 1px solid rgba(0, 0, 0, .15);
@@ -33,14 +29,9 @@
             h1 {
                 border-bottom: 1px solid rgba(0, 0, 0, .15);
                 margin: 0 0 .5rem 0;
-
-                font-size: 3rem;
-                font-weight: 100;
             }
             h2 {
                 padding: 0 0 .5rem 0;
-
-                font-size: 1.5rem;
                 font-weight: 700;
             }
             p { padding: 0 0 1rem 0; }
@@ -65,22 +56,22 @@
                 transition: background .15s ease-out;
             }
             button:hover { background-color: #eee; }
+            code{
+                background: #dadada;
+    padding: 10px;
+            }
         </style>
     </head>
 
     <body>
         <div class="box">
-            <h1>Colors</h1>
-            <h2>Background</h2>
+            <h1>高级设置</h1>
+            <h2>快捷键</h2>
             <p>
-                <label for="backgroundColor">Color</label>
-                <input id="backgroundColor" type="color" value="" />
-                <a href="chrome://extensions/#footer-section" id="openSettings" class="blue-button" target="_blank">configure the shortcuts</a>
+                <label for="backgroundColor">开启搜索框：</label>
+                <code>Alt + Shift + D</code>
             </p>
-            <p>
-                <label for="backgroundOpacity">Opacity</label>
-                <input id="backgroundOpacity" type="number" min="0" max="100" increment="1" value="" />
-            </p>
+            <p><a href="chrome://extensions/#footer-section" id="openSettings" class="blue-button" target="_blank">设置</a></p>
 
             <h2>Ruler</h2>
             <p>
@@ -94,16 +85,16 @@
         </div><!-- END .box -->
 
         <div class="box">
-            <h1>Misc</h1>
+            <h1>划词搜索</h1>
             <p>
                 <input id="showAdvToolbar" type="checkbox" />
-                <label for="showAdvToolbar">Show Area, Diagonal Calculations</label>
+                <label for="showAdvToolbar">开启shift划词</label>
             </p>
         </div><!-- END .box -->
 
         <div class="box">
             <p>
-                <button id="save">Save</button>
+                <button id="backward">返回</button>
                 <span id="status"></span>
             </p>
         </div><!-- END .box -->
