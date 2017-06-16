@@ -20,8 +20,17 @@
       "_execute_browser_action": {
          "suggested_key": {
             "default": "Alt+Shift+D"
-         }
-      }
+         },
+         "global": true
+      },
+      "open-dict-global": {
+      "suggested_key": {
+        "default": "Alt+Shift+D"
+      },
+      "description": "在浏览器外打开字典的全局快捷键",
+      "global": true
+    }
+
    },
    "background": {
     "scripts": ["js/background.js"],

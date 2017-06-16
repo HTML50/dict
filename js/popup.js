@@ -5,8 +5,10 @@ chrome.runtime.getBackgroundPage(function(w) {
     isDragSearch = w.isDragSearch;
     if (isDragSearch) {
         document.querySelector('#dragSearch .icon').classList.add('enable');
+        dragSearch.title = '已开启';
     } else {
         document.querySelector('#dragSearch .icon').classList.remove('enable');
+        dragSearch.title = '未开启';
     }
 });
 
@@ -32,14 +34,15 @@ options.addEventListener('click',function(){
 
 dragSearch.addEventListener('click', function() {
     if (isDragSearch) {
+        dragSearch.title = '未开启';
         document.querySelector('#dragSearch .icon').classList.remove('enable');
     } else {
+        dragSearch.title = '已开启';
         document.querySelector('#dragSearch .icon').classList.add('enable');
     }
     chrome.storage.local.set({ 'isDragSearch': !isDragSearch });
 
     isDragSearch = !isDragSearch;
-
     //send isDragSearch to background
     chrome.runtime.sendMessage({ setDragSearch: isDragSearch }, function(response) {
         console.log(response.param)
@@ -61,7 +64,7 @@ help.addEventListener('mouseover', function() {
 });
 help.addEventListener('mouseleave', function() {
     helpTip.style.opacity = 0;
-     helpTip.style.display = 'none'
+    helpTip.style.display = 'none'
 });
 
 

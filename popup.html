@@ -11,19 +11,28 @@
     padding: 0;
     border: none
 }
-
-body {
-    width: 500px;
+html,body {
     height: 100%;
-    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-
+body{
+     background: #f5f5f5 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAABkCAYAAABkW8nwAAAIO0lEQVR4nO2dfYhdRxXAf4YQliAhlFKixBDWGGoNNZg1FE3btELbI8WUplprbfNVq0aLWBCsoYiIxBjXWmswijT0wxaD2orpnjYNTY2p1hhKUYk1RC1hjbGUJdQagoTFP85c7liz+967M3fvfbvnB8ubecw779zZM3PnnjlnHjiO4ziO4ziO4ziO4ziO4ziO4ziO4ziO4ziO4ziO4ziO4ziO48wg3tS0Am9EVecAPw7VJ0Tkh4nybgBuDtX7ROSZFHltRFUHgeUi8rOmdSmY1bQC52A2cF34e3cGeUsjeYszyGsVqroL+DMgTesSM7tpBZxk1jetwLlo44zlTANmwox1APhyKL/QpCIziWlvWCJyEDjYtB4zDb8VOrXghuXUghuWUwtuWE4tuGE5teCG5dSCG5ZTC7X6sVR1EbAKeBcwDzgN/AU4LCLTzlmpqvOBa4BLgYuABdg1jwEvAr8CRkTkbGNKThHZoxtUdQC4DfgEcPEkTV8GhoGdcUer6lzg36H6XRG5I1GfjUAh4ysi8niKvAm+42JgC7bRPadD85PYdX9LRMY7yF0AaAd5y8PrGHC8s7YAHBeRNV22rUTWGUtVPwTsABaGt84CR7DR+ipwIbAMWIRFGtwHfFJV14rI0Zy6RCyg7PzzcgoOIT7DwGbKZcVRYB/wO2zwzMWuWYDVQZ/twIdVdY2InJzkK+ZEunfiPLq/vjd32a4y2QxLVbcCXwzVMWAnFv/0fx2nqkPABmxmWwb8VlWvEJEXc+lTN6p6PjabDIW3DmEz4sg5mo8A31DVlcAD2ABbCexX1ctF5JUJvuYV4OoOqjwVXp8E7ulS/dNdtqtMFsNS1WHgzlA9BKwVkdGJ2ovIYeCwqu4AdmGd/LSqrsBmtlajqvOA/digAPg28IVOaycROaSq78UMchVmYI8CH5ig/RlgbwddiuKoiEzadipJfipU1fWURrUXuHQyo4oRkSPAFcCzwPlYJ/fDxviPKI3qLhH5fLcLchF5HViD3SYBrlTVzflVbJYkw1LVhdg6CayjbhKR//QiQ0ROY+uPY8D7gI0pOtVNGEjXhupuEfl6rzJEZAz4TPTW3WG9Nm1InbG2Ui4EN4UO65kw5W8Axiljp1pHeOLdGqqnsCffSoS12L5QXQDcmqZdu6hsWCGA/2OheiA1SSHETY0A81Pk1MztmBEAbBOR1xLl3RuVb0mU1SpSZqxPR5//WgZdwFwVbaa4fb0OfCdVmIjswfxaAKvCk+a0IMWwPhpexyin9CRE5Ela+lSoqu/BMn7AvOe5HtlHsGveghnstKDSE1jo5MIJuqeTB7lHDgDXZ5SXi9hT/dOMcr8K3JHRUFtB1Uf71VG505ZDr/ySdhrW6qiczV8kIi/nktUmqt4K3x+Vc3vLj2WWl4yqzqL0sB8XkVNN6tMPVDWsYnP5DLY3lpNuN1KnkiXYnh/A75tUpF/o2bBUdTYwGKpHM6+vALry2k8xS6PyHxvToo+oMmMtij53IqMuBT157qeIxVH5n00p0U9UMay3RuVKnvY+5C1RuZXukLZRxbDimJ+Z0skz8ZqTqGJYcZBY6pZGvzAQlc80pkUfUcWw4o6dl0uRlhN7xLNGoU5XqhhWPEvVsbfVxnis2G81bfbz6qSKYcWhxnWM3jbOCH+Pym5YXVDFsGI/08IJW1WnjYYVO23f3pgWfUTPhhW2Mwo3w9LgMM1JGw3rpajcbdbMjKbqlk7hfZ6DJQTkZFnnJlOLiPyVcm15Ue7BpKqXqWrrrjuFqob1fFQemrBVNVZklpeL4poHyH/N9wJ/UNV/qOrSjq37gKqGtT8q586oXZlZXi6eisprcwkNafnFpv4ALYzuqEJVw3qG0rdzVUgySCakqrd1xMap+TdklHsd5f9hpIZN/UaoZFghxesnoTqXMkw5lXWZ5GQnrLOeDdXFqnrtJM17YUNUfiCTzMZJiXmPM0zuDsFwlVHVC7CcwjafxLI9Km+dsFWXhKMGLgvVIxUzmYv+alVeYmVjCOcsFLeHQeCziboMY6lfOxPl1EbIBTwQqstUNfWaY0OtmulUxMrX4VOsTGrC6uco11rbwwjsGVW9Hfg45nzNlUpWF5so/5n3qOrqKkJU9U7KOPp9IvJIRX2KCN6hXGvdHCQZlogcxzoabCr+ecjg6ZpgVN/DpvQbaXnEhIgcw5JLx7F9zcdU9YO9yFDVjwDbQvVVEjKqKdd987CE2l70mKWqt4ZDTrKSfCiIiOzGEjnHsSDA51R1cycnoqoOqh2V8v3w1i0i8utUfaaC8PNt67DBMB/4haoOd0o4VdW54bin4vCT14CrEzN1dlBG3W5T1as6fSDosRH4E/bAcE3C95+TbCf6haekXZSbtKOY0RwEDmMjahDz2dyIHeMzC9seWheygus40e9LlLfXTSJyf4q8N8i+BHgIS7YACyl6GHgau+ZRbIvqQuzgk/XABaHtEewQleTkjDDrFwN0HNgd9HoBmxEHsEF/CXZk0vX8b1zdIyJyMxnJtjUhIntU9R3AXdiUvBBLxpyIs8CDwBYRiWPnxym93H/LpV8diMjzqvpO4FPYenMJdpjcbZN87CQ2y3wzHIaSQ48fqOoJ7OC1JZj7p5ML6ATWz08Ae3LoEVPLL6yGI3muBC7H9v6KOPnT2GLzN8DjIlJ7mG+4JReP4mfqdECq6nJsQb4CSzopDvQ9heVfPgfsrfNw2zCLDgFvw657HJtJ/4XNoKPASx2OqHQcx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ecx3Ea5L+kmz9vMmb1oAAAAABJRU5ErkJggg==) no-repeat 50% 10%;
+}
+dict {
+    width: 500px;
+    overflow: hidden;
+    background: #fff;
+    border-radius: 3px;
+    box-shadow: 0 5px 10px -5px rgba(0, 0, 0, .15);
+}
 #input {
-    width: 484px;
+    width: 466px;
     border-bottom: 3px solid #079944;
     padding: 1rem;
     font: bold 1.5rem sans-serif;
-    background: #fff url(img/lookup.png) no-repeat 10px;
+    background: #fff url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACUAAAAlCAMAAADyQNAxAAABQVBMVEX///+AgoWHiYz5+fn+/v6Fh4r9/f37+/uYmpyRk5a3uLqDhYj29vaChIfm5ueIio2Bg4aur7GZm52MjpHKy8yfoKPn5+j39/e0tbejpKbx8fKlp6nj5OSUlpnl5uaho6Xz8/P4+Pipq62TlZfq6uqdnqHJysvS09SJi47q6uv09PTy8vPb3N2rrK7h4eLDxMWtrrCam57a2tuztLaWmJv8/Pytr7Hv7+/r6+yPkZPd3d7e39+qq63Mzc7f3+Dl5eausLHp6em8vb+nqKrOz9DU1dbd3t719fW1trjc3N2EhomoqauSlJbLzM3BwsPk5eWOkJPr6+uMjpDGx8ji4+OsrrD6+vqgoaS6u7yys7WKjI+XmZvu7u6bnZ/ExcevsLLp6erOztC/wMG9vr/Cw8XV1dbw8PHk5OXo6OnX2Nnv7/AlNNxYAAAAAXRSTlMAQObYZgAAAVNJREFUeF6t0dVuxDAURVHb4WFmKDIzMzMzM/z/B/Q6aRtDpjOqeh63lhNLRuxy7WMB9OuURLYNw7aiXRWNsUDwz4rL3ihUxNy6vX7cozlgIx7/Yo2dEtq1UXCkACE9kHVYnYBOLJr7Or7D7CVlZZVXPhpvmRgwaWnh0KofUhSQwIjCpl4oWj3ilvOLH+uHkEHCBiEOMWE4CKFJVKMYlnZDCtA4kmZBnnDDJChTVlOQp90wAyomqzn++vOgwqqkFiEvuUHXvG6vWlBXmJAEtSaqdYiawYQEBL/4tnmIeTYoYSibOodKGLbNpR2aGlgWogf3DE7pMZsZPMKm8Lb7dj04VOxwdBzE9poFViJ21k59Z+cmBd4sZGF5MlMyLLiIVGDoykccErm+UVorMqTe3T88Pj0HaJCYvL+wpF4TS6EaGHlB1Rl5lbrMSAFV3dv7B/rvfQJ/ex5km0JvGgAAAABJRU5ErkJggg==) no-repeat 10px;
     outline: none;
     text-indent: 33px;
     float: left;
@@ -35,13 +44,18 @@ body {
 
 #helpTip{
     position: absolute;
-    left: 40px;
-    top: 75px;
-    background: #d1ffce;
     font-size: 1rem;
-    padding: 10px;
     display: none;
-    opacity: 0;
+    opacity: 0; 
+    width: 396px;
+    background: #f7f7f7;
+    padding: 20px;
+    height: 104px;
+    margin: auto;
+    top: 15px;
+    left: 0;
+    bottom: 0;
+    right: 0;
     transition: opacity 300ms;
 }
 
@@ -75,8 +89,6 @@ body {
 .help:hover{
     cursor: help;
 }
-
-
 .enable::after {
     content: '√';
     font-weight: bold;
@@ -87,24 +99,27 @@ body {
 </style>
 
 <body>
+<dict>
     <input id="input" type="text" placeholder="SEARCH NOW" autofocus="true" maxlength="34">
     <iframe id="result" scrolling="no"></iframe>
     <setting class="setting">
-        <span id="dragSearch" class="item hover">
+        <span id="dragSearch" title="" class="item hover">
 		<span>划词搜索</span>
         <span class="icon"></span>
         </span>
         <span>
-        <span id="options" class="hover item">高级</span>
+        <span id="options" class="hover item">设置</span>
         <span id="help" class="hover item help">？</span>
         </span>
     </setting>
     <help id="helpTip">
         <h1>HELP:</h1>
         <p>1.呼出词典的默认快捷键为 Alt + Shift + D</p>
-        <p>2.划词搜索默认开启，且需要按下Shift键进行划词</p>
+        <p>2.划词搜索默认开启，可开启当按下Crtl键时才进行划词</p>
         <p>3.所有设置可以在设置页面更改</p>
     </help>
+    </dict>
+
     <script src="js/popup.js"></script>
 </body>
 

@@ -11,9 +11,11 @@ a chrome extension for looking up english word easily
 
 - [x] <del>add shortcut keys support.</del>
 
-- [ ] options page.
+- [x] <del>options page.</del>
 
 - [ ] add different site API support.
+
+- [ ] advanced search with Shift.
 
 - [ ] improve the input experience with auto completion.
 
