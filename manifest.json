@@ -5,7 +5,7 @@
   "icons": {
         "16": "img/icon.png",  
         "48": "img/icon.png",  
-        "128": "img/icon.png"  
+        "128": "img/icon.png"
     },  
   "version": "1.0",
   "permissions": [
@@ -56,5 +56,6 @@
     "run_at": "document_end",
     "all_frames":true
   } 
-]
+],
+   "update_url": "https://html50.github.io/dict/update"
 }

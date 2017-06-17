@@ -99,7 +99,6 @@ function init() {
                         if(!isCtrlDown){
                             return false;
                         }
-                        console.log('wtf/')
                     }
                     var rsTop = e.clientY + 20,
                     rsLeft = e.clientX + 20;
