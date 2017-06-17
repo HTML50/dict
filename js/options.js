@@ -5,7 +5,6 @@ var isDragSearch,isCtrlSearch;
 chrome.runtime.getBackgroundPage(function(w) {
     isDragSearch = w.isDragSearch;
     isCtrlSearch = w.isCtrlSearch;
-    console.log(isDragSearch,isCtrlSearch)
     dragAndSearchStatus.checked = isDragSearch;
     ctrlSearchStatus.checked = isCtrlSearch;
     ctrlSearchStatus.disabled = true ? false:isDragSearch;
@@ -82,16 +81,12 @@ ctrlSearchStatus.addEventListener('click', function() {
 
     isCtrlSearch = !isCtrlSearch;
     //send setCtrlSearch to background
-    chrome.runtime.sendMessage({ setCtrlSearch: isCtrlSearch }, function(response) {
-        console.log(response.param)
-    });
+    chrome.runtime.sendMessage({ setCtrlSearch: isCtrlSearch });
 
     //send isCtrlSearch to all tabs
     chrome.tabs.query({}, function(tabs) {
         for (var i = 0; i < tabs.length; i++) {
-            chrome.tabs.sendMessage(tabs[i].id, { ctrlSearchStatusChange: isCtrlSearch }, function(response) {
-                console.log(response.param);
-            });
+            chrome.tabs.sendMessage(tabs[i].id, { ctrlSearchStatusChange: isCtrlSearch });
         }
     });
 })

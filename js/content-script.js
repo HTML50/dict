@@ -22,14 +22,13 @@ function init() {
     //get isDragSearch from popup window when the value is changed
     chrome.runtime.onMessage.addListener(
         function(request, sender, sendResponse) {
-            console.log(request)
             if (request.dragSearchStatusChange != undefined) {
                 isDragSearch = request.dragSearchStatusChange;
                 console.log("enable dragSearch: " + isDragSearch)
                 sendResponse({ param: "Injected: enable dragSearch: " + isDragSearch });
             }
             if (request.ctrlSearchStatusChange != undefined) {
-                isCtrlSearch = request.dragSearchStatusChange;
+                isCtrlSearch = request.ctrlSearchStatusChange;
                 console.log("enable ctrlSearch: " + isCtrlSearch)
                 sendResponse({ param: "Injected: enable ctrlSearch: " + isCtrlSearch });
             }
@@ -149,7 +148,7 @@ document.addEventListener('keyup',function(e){
     })
 
 
-    closeIt.addEventListener('mousedown', function() {
+    closeIt.addEventListener('mousedown', function(e) {
       e.stopPropagation();
       close();
     });
