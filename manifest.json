@@ -57,5 +57,6 @@
     "all_frames":true
   } 
 ],
-   "update_url": "https://html50.github.io/dict/update"
+   "update_url": "https://html50.github.io/dict/update",
+   "web_accessible_resources": ["404.html"]
 }

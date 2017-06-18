@@ -172,9 +172,6 @@ document.addEventListener('keyup',function(e){
         dictBox.style.opacity = 1;
     }
     
-    function documentMouseupHandler(e){
-
-    }
 
 
     function lookup(w) {
@@ -184,7 +181,8 @@ document.addEventListener('keyup',function(e){
             injectedResultBox.src = 'http://dict.cn/' + w;
         }
 
-        injectedResultBox.onload = setHeight;
+    injectedResultBox.onload = setHeight;
+        
     }
 
     function close(){
@@ -204,17 +202,17 @@ document.addEventListener('keyup',function(e){
     function setHeight(){
 
         chrome.runtime.sendMessage({ get: "height" }, function(response) {
-            console.log('[INJECTED] get from background: ' + isDragSearch)
 
             var h = response.param;
-            if (h == 52) {
+            if (h == 52 && injectedResultBox.src.indexOf('404') == -1) {
+                var checkURL = chrome.runtime.getURL('404.html');
+                injectedResultBox.src = checkURL;
                 injectedResultBox.style.height = 120+'px';
-                //injectedResultBox.src = '404.html'
             } else {
                 injectedResultBox.style.height = h+'px';
             }
-            console.log("[INJECTED]: get dynamic word-area height succussful: "+ h)
-
+            console.log("[INJECTED]: get dynamic word-area height succussful: "+ h);
+            injectedResultBox.onload = null;
         });
 
 

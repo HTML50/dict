@@ -65,4 +65,5 @@
 #injectedResultBox {
     width: 100%;
     border: none;
+    transition: height .5s ease;
 }

@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
 <style>
+*{
+    margin: 0;
+    padding: 0;
+}
 body{
     display: flex;
     justify-content: center;
@@ -19,6 +23,15 @@ body{
 	display: flex;
     align-items: center;
 }
+
+@media screen and (max-width:400px) {
+   body{
+    width: 340px;
+   } 
+   .tip{
+    font-size: 1.3rem;
+   }
+    }
 </style>
 <body>
 <div class="line">
