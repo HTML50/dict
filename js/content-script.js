@@ -203,7 +203,7 @@ function init() {
     chrome.runtime.sendMessage({ get: "height" }, function(response) {
 
       var h = response.param;
-      if (h == 52 && injectedResultBox.src.indexOf('404') == -1) {
+      if (h == 52 || h==15 && injectedResultBox.src.indexOf('404') == -1) {
         var checkURL = chrome.runtime.getURL('404.html');
         injectedResultBox.src = checkURL;
         injectedResultBox.style.height = 120 + 'px';
