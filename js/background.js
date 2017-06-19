@@ -64,8 +64,26 @@ chrome.runtime.onMessage.addListener(
 	   		console.log("BACKGROUND: set height")
 	      sendResponse({param: "set height ok"});
 	    }
+
+
+	    if(request.setYoudaoHeight != undefined){
+	    	var h = request.setYoudaoHeight;
+	    	if(h == 40 || h== 82){
+	    		injectedWindowHeight = 52;
+	    		console.log("BACKGROUND: height 404")
+	    	}else{
+	    		injectedWindowHeight = h;
+	    		console.log("BACKGROUND: set height")
+	        	sendResponse({param: "set height ok"});
+	    	}
+
+	    }
+
+
 	    if(request.get == 'height'){
 	   		console.log("BACKGROUND: get height")
 	      sendResponse({param: injectedWindowHeight});
 	    }
+
+
   });
