@@ -37,4 +37,3 @@ https://github.com/HTML50/dict/blob/master/dict.crx?raw=true
 
 - [ ] loading bar when looking up a word.
 
-      ​

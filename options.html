@@ -74,6 +74,7 @@
   code {
     background: #eaeaea;
     padding: 5px 10px;
+    cursor: pointer;
   }
 
   .del{
@@ -83,6 +84,13 @@
     font-size: 0.8rem;
     color: #9e9e9e;
   }
+
+  #statusTip{
+    color: #7b7b7b;
+    padding-left: 20px;
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
   </style>
 </head>
 
@@ -91,14 +99,14 @@
     <h1>快捷键</h1>
     <p>
       <label for="searchHotkey">开启搜索框：</label>
-      <code id="searchHotkey">Alt + D</code>
+      <code id="searchHotkey" title="设置快捷键"></code>
       </p>
       <p>
        <label for="gloablSearchHotkey">全局搜索：</label>
-      <code id="gloablSearchHotkey">Alt + D</code>
+      <code id="gloablSearchHotkey" title="设置快捷键"></code>
     </p>
     <p class="tip">
-        “全局搜索”相当于在浏览器外部也可以使用快捷键打开搜索页面。
+        “全局搜索”开启后，可以在浏览器外部使用快捷键打开搜索页面，建议两个快捷键不要冲突。
     </p>
     <p><button id="openSettings">设置</button></p>
   </div>
@@ -118,7 +126,7 @@
   <div class="box">
     <p>
       <button id="backward">返回</button>
-      <span id="status"></span>
+      <span id="statusTip">更改已保存</span>
       
     </p>
     <p class="tip" id="github">项目开源地址: <a href="//github.com/html50/dict">github.com/html50/dict</a>，欢迎交流建议</p>

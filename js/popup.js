@@ -19,7 +19,6 @@ input.addEventListener('keydown', function(event) {
     } else {
       return false;
     }
-    input.value = '';
   }
 });
 
@@ -29,7 +28,6 @@ input.addEventListener('blur', function() {
 
 options.addEventListener('click', function() {
   location.href = 'options.html';
-
 });
 
 dragSearch.addEventListener('click', function() {
@@ -68,8 +66,17 @@ help.addEventListener('mouseleave', function() {
 });
 
 
+document.addEventListener('paste',function(event){
+  lookup(event.clipboardData.getData("text"));
+});    
+
 function lookup(w) {
   result.src = 'http://dict.cn/' + w;
+  setTimeout(function(){
+    input.value = '';
+    input.placeholder = w;   
+},0)
+  
 }
 
 

@@ -78,8 +78,8 @@ function init() {
       if (cy < 0) {
         cy = 0;
       }
-      if (window.innerWidth - e.clientX + initX < injectedResultBox.offsetWidth - 16) {
-        cx = window.innerWidth - injectedResultBox.offsetWidth - 16;
+      if (window.innerWidth - e.clientX + initX < 346) {
+        cx = window.innerWidth - 346;
       }
       if (e.clientY > window.innerHeight - dictBoxBar.offsetHeight - injectedResultBox.offsetHeight + initY) {
         cy = window.innerHeight - injectedResultBox.offsetHeight - dictBoxBar.offsetHeight;
@@ -104,11 +104,11 @@ function init() {
         var rsTop = e.clientY + 20,
           rsLeft = e.clientX + 20;
 
-        if (window.innerHeight - e.clientY < 400) {
-          rsTop = 0;
+        if (window.innerHeight - e.clientY < 200) {
+          rsTop = e.clientY- 200;
         }
-        if (window.innerWidth - e.clientX < 330) {
-          rsLeft = 0;
+        if (window.innerWidth - e.clientX < 346) {
+          rsLeft =window.innerWidth - 346;
         }
         dictBox.style.left = rsLeft + 'px';
         dictBox.style.top = rsTop + 'px';
@@ -134,14 +134,16 @@ function init() {
       close()
     }
 
-    if (e.keyCode == 17) {
+    if (e.keyCode == 17 && isCtrlSearch) {
       isCtrlDown = true;
+      blockHerf();
     }
   })
 
   document.addEventListener('keyup', function(e) {
-    if (e.keyCode == 17) {
+    if (e.keyCode == 17 && isCtrlSearch) {
       isCtrlDown = false;
+      document.head.removeChild(document.getElementById('dict-block-a-href'));
     }
   })
 
@@ -171,6 +173,16 @@ function init() {
   }
 
 
+
+    function blockHerf(){
+    if(document.getElementById('dict-block-a-href')== null){
+    var style = document.createElement("style");
+    style.id = 'dict-block-a-href';
+    document.head.appendChild(style);
+    sheet = style.sheet;
+    sheet.insertRule('a:hover { pointer-events:none;cursor:text;-webkit-user-drag: none;}', 0);
+    }
+}
 
   function lookup(w) {
     if (location.protocol == 'https:') {

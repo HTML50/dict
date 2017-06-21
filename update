@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<gupdate xmlns='https://html50.github.io/dict/update' protocol='2.0'>
+<gupdate xmlns='https://raw.githubusercontent.com/HTML50/dict/master/update' protocol='2.0'>
   <app appid='ilfajjpdjicjdgmflgpbjkgfjknpaheh'>
-    <updatecheck codebase='https://html50.github.io/dict/dict.crx' version='1.1' />
+    <updatecheck codebase='https://github.com/HTML50/dict/blob/master/dict.crx?raw=true' version='1.1' />
   </app>
 </gupdate>
