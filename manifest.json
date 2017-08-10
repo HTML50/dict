@@ -53,6 +53,12 @@
     "matches": ["https://youdao.com/w/eng/*", "http://youdao.com/w/eng/*", "http://www.youdao.com/w/eng/*", "https://www.youdao.com/w/eng/*", "https://www.youdao.com/w/*", "https://youdao.com/w/*", "http://www.youdao.com/w/*", "http://youdao.com/w/*"],
     "run_at": "document_end",
     "all_frames": true
+  }, {
+    "css": ["css/eudic.net.css"],
+    "js": ["js/eudic.net.js"],
+    "matches": ["https://dict.eudic.net/dicts/en/*", "http://dict.eudic.net/dicts/en/*"],
+    "run_at": "document_end",
+    "all_frames": true
   }],
   "update_url": "https://raw.githubusercontent.com/HTML50/dict/master/update",
   "web_accessible_resources": ["404.html"]

@@ -1,4 +1,4 @@
-if (location.href.indexOf('dict.cn') == -1 && location.href.indexOf('youdao.com') == -1) {
+if (location.href.indexOf('dict.cn') == -1 && location.href.indexOf('youdao.com') == -1 && location.href.indexOf('dict.eudic.net') == -1) {
   init();
 }
 
@@ -79,8 +79,8 @@ function init() {
       if (cy < 0) {
         cy = 0;
       }
-      if (window.innerWidth - e.clientX + initX < 346) {
-        cx = window.innerWidth - 346;
+      if (window.innerWidth - e.clientX + initX < 330) {
+        cx = window.innerWidth - 330;
       }
       if (e.clientY > window.innerHeight - dictBoxBar.offsetHeight - injectedResultBox.offsetHeight + initY) {
         cy = window.innerHeight - injectedResultBox.offsetHeight - dictBoxBar.offsetHeight;
@@ -91,7 +91,7 @@ function init() {
   })
 
   document.addEventListener('mouseup', function(e) {
-    if (e.clientY > window.innerWidth || e.clientY < 0 || e.clientX < 0 || e.clientX > window.innerHeight) {
+    if (e.clientY > window.innerHeight || e.clientY < 0 || e.clientX < 0 || e.clientX > window.innerWidth) {
       mouseupHandler();
       return;
     }
@@ -109,8 +109,8 @@ function init() {
         if (window.innerHeight - e.clientY < 200) {
           rsTop = e.clientY- 200;
         }
-        if (window.innerWidth - e.clientX < 346) {
-          rsLeft =window.innerWidth - 346;
+        if (window.innerWidth - e.clientX < 330) {
+          rsLeft =window.innerWidth - 330;
         }
         dictBox.style.left = rsLeft + 'px';
         dictBox.style.top = rsTop + 'px';
@@ -126,6 +126,7 @@ function init() {
         if (e.target.nodeName == 'DICTBOXBAR' || e.target.nodeName == 'IMG' || isPinned) {
           return false;
         }
+        mouseupHandler();
         close();
       }
     }
@@ -137,8 +138,10 @@ function init() {
     }
 
     if (e.keyCode == 17 && isCtrlSearch) {
-      isCtrlDown = true;
-      blockHerf();
+        if(document.getElementById('dict-block-a-href')== null){
+        isCtrlDown = true;
+        blockHerf();
+      }
     }
   })
 
@@ -152,7 +155,7 @@ function init() {
   })
 
 
-  closeIt.addEventListener('mouseup', function(e) {
+  closeIt.addEventListener('click', function(e) {
     mouseupHandler();
     close();
   });
@@ -191,7 +194,7 @@ function init() {
 
   function lookup(w) {
     if (location.protocol == 'https:') {
-      injectedResultBox.src = 'https://youdao.com/w/eng/' + w;
+      injectedResultBox.src = 'https://dict.eudic.net/dicts/en/' + w;
     } else {
       injectedResultBox.src = 'http://dict.cn/' + w;
     }

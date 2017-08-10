@@ -1,5 +1,5 @@
 # dict
-a chrome extension for looking up english word easily
+a chrome extension for looking up english word easily.
 
 
 
@@ -17,6 +17,10 @@ a chrome extension for looking up english word easily
 
 https://github.com/HTML50/dict/blob/master/dict.crx?raw=true
 
+PS:
+
+Chrome on Windows OS can not install srx directly, while Linix can.
+
 
 
 # Todolist
@@ -29,3 +33,13 @@ https://github.com/HTML50/dict/blob/master/dict.crx?raw=true
 - [ ] add different site API support.
 - [ ] improve the input experience with auto completion.
 - [ ] loading bar when looking up a word.
+
+
+
+# Update Log
+
+2017/08/10
+
+fix https search. Change Youdao to Eudic.
+
+improve some bug of advanced search.
