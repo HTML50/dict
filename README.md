@@ -5,11 +5,11 @@ a chrome extension for looking up english word easily.
 
 # Screenshot
 
-![划词搜索](https://raw.githubusercontent.com/HTML50/dict/master/ss.png)
+![advanced search](https://raw.githubusercontent.com/HTML50/dict/master/ss.png)
 
 
 
-![扩展搜索界面](https://raw.githubusercontent.com/HTML50/dict/master/ss1.png)
+![basic UI](https://raw.githubusercontent.com/HTML50/dict/master/ss1.png)
 
 
 
@@ -19,7 +19,7 @@ https://github.com/HTML50/dict/blob/master/dict.crx?raw=true
 
 PS:
 
-Chrome on Windows OS can not install srx directly, while Linix can.
+Chrome on Windows OS can not install srx directly, while Linux can.
 
 
 
@@ -42,4 +42,10 @@ Chrome on Windows OS can not install srx directly, while Linix can.
 
 fix https search. Change Youdao to Eudic.
 
-improve some bug of advanced search.
+fix some bug of advanced search.
+
+
+
+2017/08/11
+
+fix a bug of Ctrl search

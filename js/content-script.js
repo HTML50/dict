@@ -90,6 +90,11 @@ function init() {
     }
   })
 
+
+  window.onblur = function(){
+    unblockHerf();
+  }
+
   document.addEventListener('mouseup', function(e) {
     if (e.clientY > window.innerHeight || e.clientY < 0 || e.clientX < 0 || e.clientX > window.innerWidth) {
       mouseupHandler();
@@ -134,23 +139,17 @@ function init() {
 
   document.addEventListener('keydown', function(e) {
     if (e.keyCode == '27' && !isPinned && isBoxOpened) {
-      close()
+       close()
     }
 
     if (e.keyCode == 17 && isCtrlSearch) {
-        if(document.getElementById('dict-block-a-href')== null){
-        isCtrlDown = true;
         blockHerf();
-      }
     }
   })
 
   document.addEventListener('keyup', function(e) {
     if (e.keyCode == 17 && isCtrlSearch) {
-      isCtrlDown = false;
-      if(document.getElementById('dict-block-a-href')!= null){
-      document.head.removeChild(document.getElementById('dict-block-a-href'));
-    }
+      unblockHerf();
     }
   })
 
@@ -184,13 +183,20 @@ function init() {
 
     function blockHerf(){
     if(document.getElementById('dict-block-a-href')== null){
+    isCtrlDown = true;
     var style = document.createElement("style");
     style.id = 'dict-block-a-href';
     document.head.appendChild(style);
     sheet = style.sheet;
     sheet.insertRule('a:hover { pointer-events:none;cursor:text;-webkit-user-drag: none;}', 0);
+    }}
+
+    function unblockHerf(){
+      isCtrlDown = false;
+      if(document.getElementById('dict-block-a-href')!= null){
+      document.head.removeChild(document.getElementById('dict-block-a-href'));
     }
-}
+    }
 
   function lookup(w) {
     if (location.protocol == 'https:') {
@@ -206,7 +212,7 @@ function init() {
     dictBox.classList.remove('show-dictBox');
     hiddenProcess = setTimeout(function() {
       dictBox.style.display = 'none';
-    }, 300);
+    }, 200);
     hiddenProcessDetectProcess = setInterval(function() {
       if (isBoxOpened) {
         clearTimeout(hiddenProcess);

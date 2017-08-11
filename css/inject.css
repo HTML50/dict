@@ -8,7 +8,7 @@
     opacity: 0;
     display: none;
     height:auto;
-    transition: transform 0.3s cubic-bezier(0.46, 1.4, 0.84, 1.03),box-shadow 0.3s ease,opacity 0.3s cubic-bezier(0, 1.15, 1, 1);
+    transition: transform 0.2s cubic-bezier(0.46, 1.4, 0.84, 1.03),box-shadow 0.2s ease-out,opacity 0.2s cubic-bezier(0, 1.15, 1, 1);
 }
 
 .show-dictBox {
@@ -65,5 +65,5 @@
 #injectedResultBox {
     width: 100%;
     border: none;
-    transition: height .5s ease;
+    transition: height 0.3s ease;
 }
