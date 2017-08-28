@@ -1,5 +1,5 @@
 # dict
-a chrome extension for looking up english word easily.
+a Chrome extension for looking up english word easily.
 
 
 
@@ -35,17 +35,3 @@ Chrome on Windows OS can not install srx directly, while Linux can.
 - [ ] loading bar when looking up a word.
 
 
-
-# Update Log
-
-2017/08/10
-
-fix https search. Change Youdao to Eudic.
-
-fix some bug of advanced search.
-
-
-
-2017/08/11
-
-fix a bug of Ctrl search

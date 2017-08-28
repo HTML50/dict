@@ -1,9 +1,10 @@
 
-let getList= ['footer','loginAuth','login-popup','header','head-bk','head-bar','exp-rating','noteRelate','addNote','masker','ExpSYN','ExpLJ','customize-tabs','word-thumbnail-image','ExpSPEC','selectTransArea','trans'],
-	queryList = ['.ui-tabs-nav.ui-helper-reset.ui-helper-clearfix.ui-widget-header.ui-corner-all','.expHead'],
+var getList= ['footer','loginAuth','login-popup','header','head-bk','head-bar','exp-rating','noteRelate','addNote','masker','ExpSYN','ExpLJ','customize-tabs','word-thumbnail-image','ExpSPEC','selectTransArea','trans','mwCA-en'],
+	queryList = ['.ui-tabs-nav.ui-helper-reset.ui-helper-clearfix.ui-widget-header.ui-corner-all','.expHead','.explain-word-info'],
 	parentList = ['scrollToTop','globalVoice']//id
 	safeNodeList = [],
-	len = getList.length;
+	len = getList.length,
+	rsHeight = 0;
 
 
 
@@ -82,8 +83,10 @@ function removeNode(node){
 removeNodes(safeNodeList);
 
 
-
-
-  chrome.runtime.sendMessage({ setHeight: document.getElementById('dict-body').clientHeight+20 }, function(response) {
-    console.log('[INJECTED eduic.net]set windowHeight: ' + document.getElementById('dict-body').clientHeight)
-  });
+rsHeight = document.getElementById('dict-body').clientHeight;
+if(!rsHeight == 0){
+	rsHeight += 20;
+}
+chrome.runtime.sendMessage({ setHeight: rsHeight }, function(response) {
+console.log('[INJECTED eduic.net]set windowHeight: ' + rsHeight)
+});

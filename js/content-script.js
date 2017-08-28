@@ -1,4 +1,4 @@
-if (location.href.indexOf('dict.cn') == -1 && location.href.indexOf('youdao.com') == -1 && location.href.indexOf('dict.eudic.net') == -1) {
+if (location.href.indexOf('dict.cn') == -1 && location.href.indexOf('dict.eudic.net') == -1) {
   init();
 }
 
@@ -187,8 +187,8 @@ function init() {
     var style = document.createElement("style");
     style.id = 'dict-block-a-href';
     document.head.appendChild(style);
-    sheet = style.sheet;
-    sheet.insertRule('a:hover { pointer-events:none;cursor:text;-webkit-user-drag: none;}', 0);
+    style.sheet.insertRule('a{pointer-events:none !important;}', 0);
+    style.sheet.insertRule('body {cursor:text !important;}', 0);
     }}
 
     function unblockHerf(){
@@ -229,7 +229,7 @@ function init() {
     chrome.runtime.sendMessage({ get: "height" }, function(response) {
 
       var h = response.param;
-      if (h == 52 || h==15 && injectedResultBox.src.indexOf('404') == -1) {
+      if (h == 52 || h==0 || h==15 && injectedResultBox.src.indexOf('404') == -1) {
         var checkURL = chrome.runtime.getURL('404.html');
         injectedResultBox.src = checkURL;
         injectedResultBox.style.height = 120 + 'px';

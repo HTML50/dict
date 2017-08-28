@@ -6,6 +6,7 @@
 
 #globalVoice,
 .tag,
+.explain-word-info,
 .gv_content,
 #header,
 #head-bk,
@@ -16,6 +17,7 @@
 #masker,
 #ExpSYN,
 #ExpLJ,
+#mwCA-en,
 #ExpSPEC,
 #customize-tabs,
 #trans,
@@ -24,11 +26,15 @@
 .expHead,
 footer,
 .phonitic-line + span,
-dict-body + div
+dict-body + div,
+.dicBox
  {
     display: none !important;
 }
 
+#dict-body{
+	width: 300px !important;
+}
 .ui-tabs .ui-tabs-panel{
 	border: none !important;
 	padding: 0 !important;
@@ -39,6 +45,7 @@ dict-body + div
     color: #094 !important;
     font-family: Verdana,Geneva,sans-serif !important;
 }
+
 
 .exp,#translate{
 	color: #333 !important;
