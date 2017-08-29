@@ -48,12 +48,6 @@
     "run_at": "document_end",
     "all_frames": true
   }, {
-    "css": ["css/youdao.css"],
-    "js": ["js/youdao.js"],
-    "matches": ["https://youdao.com/w/eng/*", "http://youdao.com/w/eng/*", "http://www.youdao.com/w/eng/*", "https://www.youdao.com/w/eng/*", "https://www.youdao.com/w/*", "https://youdao.com/w/*", "http://www.youdao.com/w/*", "http://youdao.com/w/*"],
-    "run_at": "document_end",
-    "all_frames": true
-  }, {
     "css": ["css/eudic.net.css"],
     "js": ["js/eudic.net.js"],
     "matches": ["https://dict.eudic.net/dicts/en/*", "http://dict.eudic.net/dicts/en/*"],
