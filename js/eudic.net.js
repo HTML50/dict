@@ -1,6 +1,6 @@
 
-var getList= ['footer','loginAuth','login-popup','header','head-bk','head-bar','exp-rating','noteRelate','addNote','masker','ExpSYN','ExpLJ','customize-tabs','word-thumbnail-image','ExpSPEC','selectTransArea','trans','mwCA-en'],
-	queryList = ['.ui-tabs-nav.ui-helper-reset.ui-helper-clearfix.ui-widget-header.ui-corner-all','.expHead','.explain-word-info'],
+var getList= ['footer','loginAuth','login-popup','header','head-bk','head-bar','exp-rating','noteRelate','addNote','masker','ExpSYN','ExpLJ','customize-tabs','word-thumbnail-image','ExpSPEC','selectTransArea','trans','mwCA-en','mw-content-text-zh'],
+	queryList = ['.ui-tabs-nav.ui-helper-reset.ui-helper-clearfix.ui-widget-header.ui-corner-all','.expHead','explain-word-info'],
 	parentList = ['scrollToTop','globalVoice']//id
 	safeNodeList = [],
 	len = getList.length,

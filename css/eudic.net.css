@@ -6,7 +6,6 @@
 
 #globalVoice,
 .tag,
-.explain-word-info,
 .gv_content,
 #header,
 #head-bk,
@@ -25,6 +24,7 @@
 .ui-tabs-nav.ui-helper-reset.ui-helper-clearfix.ui-widget-header.ui-corner-all,
 .expHead,
 footer,
+#mw-content-text-zh, /*intro*/
 .phonitic-line + span,
 dict-body + div,
 .dicBox

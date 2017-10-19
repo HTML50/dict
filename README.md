@@ -19,7 +19,7 @@ https://github.com/HTML50/dict/blob/master/dict.crx?raw=true
 
 PS:
 
-Chrome on Windows OS can not install srx directly, while Linux can.
+due to I haven't register Google developer ID, you can only download .crx file and extract it then drag the folder into Chrome Extensions (`chrome://extensions`), you may need tick the `Developer mode` selection.
 
 
 
